@@ -16,7 +16,7 @@ function App() {
     try {
       setLoading(true);
       setError('');
-      const response = await fetch('/api/contacts');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contacts`);
       const result = await response.json();
 
       if (!response.ok) {
@@ -38,7 +38,7 @@ function App() {
 
   const handleDeleteContact = async (id) => {
     try {
-      const response = await fetch(`/api/contacts/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contacts/${id}`, {
         method: 'DELETE',
       });
 
